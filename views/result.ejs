@@ -1,0 +1,108 @@
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    
+</head>
+
+<div id="result" :style="setBody1()">
+    <br>
+    <h1 :style="styleText1()">RESULT</h1>
+    <hr :style="hrStyle()">
+    <div class="container mt-3" :style="setBody2()">
+     
+        <form action="/result">
+            <table class="table">
+              <thead>
+                <th>Investment ID</th>
+                <th>Investment Details</th>
+                <th>Investment Status</th>
+                <th>Project ID</th>
+                <th>Investor ID</th>
+                <th>User ID</th>
+              </thead>
+              <tbody>
+                <% for(var i=0; i<data.length;i++){%>
+                    <tr>
+                      <td><%=data[i].idInvestment%></td>
+                      <td><%=data[i].InvestmentDetails%></td>
+                      <td><%=data[i].InvestmentSatus%></td>
+                      <td><%=data[i].Project_idProject%></td>
+                      <td><%=data[i].Investor_idInvestor%></td>
+                      <td><%=data[i].User_idUser%></td>
+                <%}%>    
+                
+              </tbody>
+            </table>
+        </form>
+        <a href="/">CHOOSE ANOTHER PROJECT</a>
+    </div>
+
+</div>
+
+<script>
+    new Vue({
+    el: '#result',
+    data: {
+        color: 'brown',
+        fontSize: '6rem',
+        data: '',
+    },
+    methods: {
+        setBody1: function() {
+            return {
+                backgroundColor: '#283149',
+                width: '100%',
+                height: '100%',
+                border: 'none',
+                textAlign: 'center',
+            }
+        },
+        setBody2: function(){
+            return {
+                backgroundColor: 'white',
+                width: '70%',
+                height: '50%',
+                border: 'none',
+                borderRadius: '20px',
+            }
+        },
+        styleText1: function() {
+            return {
+                color: 'white',
+                fontSize: '6rem',
+                textShadow: '3px 0 rgb(243,76,71)',
+            }
+        },
+        hrStyle: function() {
+            return {
+                border: 'dotted #DBEDF3 10px',
+                borderBottom: 'none',
+                width: '10%',
+                margin: '100px auto 50px auto',
+            }
+        },
+        logOut: function(){
+            return {
+                position: 'absolute',
+                right: '20px',
+                top: '20px',
+            }
+        },
+        keyboard: function(){
+            return this.data;
+        }
+    }
+})
+  </script>
+
+</html>

@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>signup</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+
+    <style>
+
+        body {
+            background-color: brown;
+            padding: 15% 20%;
+            color: white;
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="title">
+        <h1 :style="setTitle()">{{textTitle}}</h1>
+    </div>
+    
+    <h3 :style="setH3()"><em>Please sign up before choosing project</em></h3>    
+    <div class="container mt-3">
+        <form action="/add" method="post" enctype="application/x-www-form-urlencoded">
+
+            <label for="name">Name</label>
+            <input type = "text" name="name" class="form-control"> 
+            <label for="password">Password</label>
+            <input type = "text" name="password" class="form-control"> 
+            <input type = "submit" value = "enrol" class = "btn btn-primary mt-2"><br>
+            <a href="/">Back</a>
+            
+        </form>
+    
+    
+    </div>
+
+    <script>
+
+        var title = new Vue({
+                el: '#title',
+                data: {
+                    textTitle: 'SIGN UP',
+                },
+                methods: {
+                    setTitle: function() {
+                        return {
+                            fontSize: '3rem',
+                        }
+                    }
+                }
+        })
+
+        new Vue({
+            el: 'h3',
+            methods: {
+                setH3: function(){
+                    return {
+                        fontWeight: 'lighter',
+                    }
+                }
+                
+            }
+        })
+    </script>
+    </body>
+</html>
